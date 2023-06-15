@@ -36,11 +36,11 @@ RUN ln -s ../pat-public/src/pat .
 WORKDIR /setup/timeloop
 RUN scons -j2 --accelergy --static
 
-WORKDIR /lambda/
-RUN git clone https://github.com/Haimrich/timeloop.git
-WORKDIR /lambda/timeloop/src
-RUN ln -s ../pat-public/src/pat .
-WORKDIR /lambda/timeloop
-RUN scons -j2 --accelergy --static
+# WORKDIR /lambda/
+# RUN git clone https://github.com/Haimrich/timeloop.git
+# WORKDIR /lambda/timeloop/src
+# RUN ln -s ../pat-public/src/pat .
+# WORKDIR /lambda/timeloop
+# RUN scons -j2 --accelergy --static
 
 WORKDIR /app/

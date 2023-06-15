@@ -1,0 +1,100 @@
+# Simba-like Chiplet Architecture
+
+architecture:
+  version: 0.3
+  subtree:
+    - name: System
+      attributes:
+       # global attributes - it will apply to all the links till PE level 
+        datawidth: 8
+        word-bits: 8
+        technology: 45nm
+      local:
+        - name: DRAM
+          class: DRAM
+          attributes:
+            type: LPDDR4
+            width: 64
+            block-size: 8
+            word-bits: 8
+            read_bandwidth: 17.9 #words/cycle
+            write_bandwidth: 17.9
+            # useful only in specific case. instance. will be used in cosa(a type of mapper which works on timeloop). specify in two ways: DRAM[0..3] or instances:4
+            instances: 1
+            # if we want to find the communication between dram and chiplet. this is an example
+            network_read: PCIe
+          - name: PCIe
+            class: Legacy
+            attributes:
+              word-bits: 8
+              energy-per-hop: 0.952
+          # if we have multiple GlobalBuffer, go with lambda
+      subtree:
+        - name: Chiplet
+          local:
+            - name: GlobalBuffer
+              class: storage
+              subclass: smartbuffer_SRAM
+              attributes:
+                depth: 2048
+                width: 256
+                word-bits: 8
+                block-size: 32
+                n_rdwr_ports: 2
+                read_bandwidth: 16
+                write_bandwidth: 16
+                network_read: NoC
+                network_fill: PCIe
+            - name: NoC
+              class: Legacy
+              attributes:
+                word-bits: 8
+                # energy per word per hop. word bit specified
+                energy-per-hop: 0.952
+          subtree:
+            - name: PE[0..15]
+              local:
+                - name: PEInputBuffer
+                  class: storage
+                  subclass: smartbuffer_RF
+                  attributes:
+                    depth: 1024
+                    width: 64
+                    word-bits: 8
+                    block-size: 8
+                    network_fill: NoC
+                    meshX: 4
+                - name: PEWeightBuffer[`]
+                  class: storage
+                  subclass: smartbuffer_RF
+                  attributes:
+                    depth: 512
+                    word-bits: 8
+                    block-size: 8
+                    # used by accelergy - nbanks
+                    nbanks: 8
+                    meshX: 4
+                - name: PEAccuBuffer[0..3]
+                  class: storage
+                  subclass: smartbuffer_RF
+                  attributes:
+                    depth: 128
+                    word-bits: 24
+                    meshX: 4
+                - name: PEWeightRegs[0..31]
+                  class: storage
+                  subclass: reg_storage
+                  attributes:
+                    depth: 1
+                    word-bits: 8
+                    # used by accelergy - cluster-size
+                    cluster-size: 64
+                    num-ports: 2
+                    meshX: 4
+                  # per cycle, a PE can do 32 MAC operation
+                - name: LMAC[0..31]
+                  class: compute
+                  subclass: intmac
+                  attributes:
+                    datawidth: 8
+                    meshX: 4

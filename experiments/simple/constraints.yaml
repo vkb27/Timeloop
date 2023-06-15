@@ -1,0 +1,18 @@
+mapspace_constraints:
+  targets:
+    - target: GlobalScratchpad
+      type: temporal
+      factors: R=1 S=1
+    - target: GlobalScratchpad
+      type: spatial
+      factors: R=1 S=1 P=1 Q=1 N=1
+    - target: MainMemory
+      type: temporal
+      factors: R=1 S=1
+    - target: MainMemory
+      type: datatype
+      bypass: []
+      keep:
+      - Weights
+      - Inputs
+      - Outputs

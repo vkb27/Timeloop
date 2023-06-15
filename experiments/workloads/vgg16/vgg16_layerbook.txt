@@ -1,0 +1,16 @@
+block1_conv1, 1
+block1_conv2, 2
+block2_conv1, 3
+block2_conv2, 4
+block3_conv1, 5
+block3_conv2, 6
+block3_conv3, 6
+block4_conv1, 7
+block4_conv2, 8
+block4_conv3, 8
+block5_conv1, 9
+block5_conv2, 9
+block5_conv3, 9
+fc1, 10
+fc2, 11
+predictions, 12
