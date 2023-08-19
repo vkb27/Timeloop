@@ -1,0 +1,5 @@
+timeloop-mapper workloads/conv4.yaml arch_eyeriss_like/*.yaml  mapper/*.yaml arch_eyeriss_like/components/*.yaml arch_eyeriss_like/constraints/*.yaml
+
+timeloop-mapper workloads/conv4.yaml arch_eyeriss_like/*.yaml  mapper/*.yaml arch_eyeriss_like/*/*.yaml
+
+timeloop-mapper workloads/conv4.yaml arch/eyeriss-256-rs.yaml > out.txt

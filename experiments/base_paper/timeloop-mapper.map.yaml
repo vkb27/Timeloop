@@ -1,0 +1,81 @@
+mapping:
+  - target: PsumRegFile
+    type: datatype
+    keep:
+      []
+    bypass:
+      - Weights
+      - Inputs
+      - Outputs
+  - target: WeightRegFile
+    type: datatype
+    keep:
+      - Weights
+    bypass:
+      - Inputs
+      - Outputs
+  - target: InputRegFile
+    type: datatype
+    keep:
+      []
+    bypass:
+      - Weights
+      - Inputs
+      - Outputs
+  - target: DummyBuffer
+    type: datatype
+    keep:
+      []
+    bypass:
+      - Weights
+      - Inputs
+      - Outputs
+  - target: GlobalBuffer
+    type: datatype
+    keep:
+      - Inputs
+      - Outputs
+    bypass:
+      - Weights
+  - target: DRAM
+    type: datatype
+    keep:
+      - Weights
+      - Inputs
+      - Outputs
+    bypass:
+      []
+  - target: PsumRegFile
+    type: temporal
+    factors: R1 S1 P1 Q1 C1 K2 N1
+    permutation: KRSPQCN
+  - target: WeightRegFile
+    type: temporal
+    factors: R3 S1 P1 Q1 C2 K1 N1
+    permutation: CRSPQKN
+  - target: InputRegFile
+    type: temporal
+    factors: R1 S1 P1 Q1 C1 K1 N1
+    permutation: RSPQCKN
+  - target: DummyBuffer
+    type: spatial
+    factors: R1 S3 P1 Q1 C4 K1 N1
+    permutation: SCRPQKN
+    split: 0
+  - target: DummyBuffer
+    type: temporal
+    factors: R1 S1 P1 Q1 C1 K1 N1
+    permutation: RSPQCKN
+  - target: GlobalBuffer
+    type: spatial
+    factors: R1 S1 P1 Q1 C1 K16 N1
+    permutation: KRSPQCN
+    split: 1
+  - target: GlobalBuffer
+    type: temporal
+    factors: R1 S1 P64 Q1 C1 K12 N1
+    permutation: PKRSQCN
+  - target: DRAM
+    type: temporal
+    factors: R1 S1 P1 Q64 C32 K1 N1
+    permutation: CQRSPKN

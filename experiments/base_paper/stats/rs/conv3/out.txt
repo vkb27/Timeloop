@@ -1,0 +1,33 @@
+input file: workloads/conv3.yaml
+input file: arch/eyeriss-256-rs.yaml
+  _______                __                
+ /_  __(_)___ ___  ___  / /___  ____  ____ 
+  / / / / __ `__ \/ _ \/ / __ \/ __ \/ __ \
+ / / / / / / / / /  __/ / /_/ / /_/ / /_/ /
+/_/ /_/_/ /_/ /_/\___/_/\____/\____/ .___/ 
+                                  /_/      
+
+Problem configuration complete.
+Architecture configuration complete.
+Sparse optimization configuration complete.
+Using all available hardware threads = 8
+Mapper configuration complete.
+Initializing Index Factorization subspace.
+  Factorization options along problem dimension R = 1
+  Factorization options along problem dimension S = 1
+  Factorization options along problem dimension P = 1
+  Factorization options along problem dimension Q = 7
+  Factorization options along problem dimension C = 36
+  Factorization options along problem dimension K = 495
+  Factorization options along problem dimension N = 1
+Mapspace Dimension [IndexFactorization] Size: 124740
+Mapspace Dimension [LoopPermutation] Size: 1
+Mapspace Dimension [Spatial] Size: 1
+Mapspace Dimension [DatatypeBypass] Size: 1
+Mapspace split! Per-split Mapping Dimension [IndexFactorization] Size: 15593 Residue: 4
+Mapspace construction complete.
+Search configuration complete.
+
+
+Summary stats for best mapping found by mapper:
+  Utilization = 1.00 | pJ/Compute =    7.370
