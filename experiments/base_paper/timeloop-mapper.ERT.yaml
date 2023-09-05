@@ -71,141 +71,51 @@ ERT:
     - name: idle
       arguments: null
       energy: 0
-  - name: system.eyeriss.PE[0..255].ifmap_spad
-    actions:
-    - name: write
-      arguments:
-        address_delta: 0
-        data_delta: 0
-      energy: 0.0549
-    - name: write
-      arguments:
-        address_delta: 0
-        data_delta: 1
-      energy: 0.19298
-    - name: write
-      arguments:
-        address_delta: 1
-        data_delta: 0
-      energy: 0.09824
-    - name: write
-      arguments:
-        address_delta: 1
-        data_delta: 1
-      energy: 0.23632
-    - name: read
-      arguments:
-        address_delta: 0
-        data_delta: 0
-      energy: 0.0549
-    - name: read
-      arguments:
-        address_delta: 0
-        data_delta: 1
-      energy: 0.19298
-    - name: read
-      arguments:
-        address_delta: 1
-        data_delta: 0
-      energy: 0.09824
-    - name: read
-      arguments:
-        address_delta: 1
-        data_delta: 1
-      energy: 0.23632
-    - name: idle
-      arguments: null
-      energy: 0.018
   - name: system.eyeriss.PE[0..255].weights_spad
     actions:
     - name: write
       arguments:
         address_delta: 0
         data_delta: 0
-      energy: 0.06053
+      energy: 0.06138
     - name: write
       arguments:
         address_delta: 0
         data_delta: 1
-      energy: 0.19861
+      energy: 0.19946
     - name: write
       arguments:
         address_delta: 1
         data_delta: 0
-      energy: 1.44744
+      energy: 1.65054
     - name: write
       arguments:
         address_delta: 1
         data_delta: 1
-      energy: 1.58552
+      energy: 1.78862
     - name: read
       arguments:
         address_delta: 0
         data_delta: 0
-      energy: 0.06053
+      energy: 0.06138
     - name: read
       arguments:
         address_delta: 0
         data_delta: 1
-      energy: 0.19861
+      energy: 0.19946
     - name: read
       arguments:
         address_delta: 1
         data_delta: 0
-      energy: 1.44744
+      energy: 1.65054
     - name: read
       arguments:
         address_delta: 1
         data_delta: 1
-      energy: 1.58552
+      energy: 1.78862
     - name: idle
       arguments: null
-      energy: 0.02363
-  - name: system.eyeriss.PE[0..255].psum_spad
-    actions:
-    - name: write
-      arguments:
-        address_delta: 0
-        data_delta: 0
-      energy: 0.05496
-    - name: write
-      arguments:
-        address_delta: 0
-        data_delta: 1
-      energy: 0.19304
-    - name: write
-      arguments:
-        address_delta: 1
-        data_delta: 0
-      energy: 0.11275
-    - name: write
-      arguments:
-        address_delta: 1
-        data_delta: 1
-      energy: 0.25083
-    - name: read
-      arguments:
-        address_delta: 0
-        data_delta: 0
-      energy: 0.05496
-    - name: read
-      arguments:
-        address_delta: 0
-        data_delta: 1
-      energy: 0.19304
-    - name: read
-      arguments:
-        address_delta: 1
-        data_delta: 0
-      energy: 0.11275
-    - name: read
-      arguments:
-        address_delta: 1
-        data_delta: 1
-      energy: 0.25083
-    - name: idle
-      arguments: null
-      energy: 0.01806
+      energy: 0.02448
   - name: system.eyeriss.shared_glb
     actions:
     - name: write

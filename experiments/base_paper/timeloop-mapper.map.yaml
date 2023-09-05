@@ -1,25 +1,9 @@
 mapping:
-  - target: PsumRegFile
-    type: datatype
-    keep:
-      []
-    bypass:
-      - Weights
-      - Inputs
-      - Outputs
-  - target: WeightRegFile
+  - target: weights_spad
     type: datatype
     keep:
       - Weights
     bypass:
-      - Inputs
-      - Outputs
-  - target: InputRegFile
-    type: datatype
-    keep:
-      []
-    bypass:
-      - Weights
       - Inputs
       - Outputs
   - target: DummyBuffer
@@ -30,7 +14,7 @@ mapping:
       - Weights
       - Inputs
       - Outputs
-  - target: GlobalBuffer
+  - target: shared_glb
     type: datatype
     keep:
       - Inputs
@@ -45,37 +29,29 @@ mapping:
       - Outputs
     bypass:
       []
-  - target: PsumRegFile
+  - target: weights_spad
     type: temporal
-    factors: R1 S1 P1 Q1 C1 K2 N1
-    permutation: KRSPQCN
-  - target: WeightRegFile
-    type: temporal
-    factors: R3 S1 P1 Q1 C2 K1 N1
-    permutation: CRSPQKN
-  - target: InputRegFile
-    type: temporal
-    factors: R1 S1 P1 Q1 C1 K1 N1
-    permutation: RSPQCKN
+    factors: C1 K1 R11 S11 N1 P1 Q1
+    permutation: RSCKNPQ
   - target: DummyBuffer
     type: spatial
-    factors: R1 S3 P1 Q1 C4 K1 N1
-    permutation: SCRPQKN
+    factors: C1 K1 R1 S1 N1 P1 Q11
+    permutation: QCKRSNP
     split: 0
   - target: DummyBuffer
     type: temporal
-    factors: R1 S1 P1 Q1 C1 K1 N1
-    permutation: RSPQCKN
-  - target: GlobalBuffer
+    factors: C1 K1 R1 S1 N1 P1 Q1
+    permutation: CKRSNPQ
+  - target: shared_glb
     type: spatial
-    factors: R1 S1 P1 Q1 C1 K16 N1
-    permutation: KRSPQCN
-    split: 1
-  - target: GlobalBuffer
+    factors: C3 K4 R1 S1 N1 P1 Q1
+    permutation: CKRSNPQ
+    split: 2
+  - target: shared_glb
     type: temporal
-    factors: R1 S1 P64 Q1 C1 K12 N1
-    permutation: PKRSQCN
+    factors: C1 K12 R1 S1 N1 P55 Q1
+    permutation: PKCRSNQ
   - target: DRAM
     type: temporal
-    factors: R1 S1 P1 Q64 C32 K1 N1
-    permutation: CQRSPKN
+    factors: C1 K2 R1 S1 N1 P1 Q5
+    permutation: KQCRSNP
