@@ -71,7 +71,7 @@ ERT:
     - name: idle
       arguments: null
       energy: 0
-  - name: system.eyeriss.PE[0..255].weights_spad
+  - name: system.eyeriss.PE[0..255].psum_spad
     actions:
     - name: write
       arguments:

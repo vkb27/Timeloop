@@ -7,7 +7,7 @@ ART:
     area: 235.68
   - name: system.DRAM
     area: 0
-  - name: system.eyeriss.PE[0..255].weights_spad
+  - name: system.eyeriss.PE[0..255].psum_spad
     area: 4124.68
   - name: system.eyeriss.shared_glb
     area: 1162549.0

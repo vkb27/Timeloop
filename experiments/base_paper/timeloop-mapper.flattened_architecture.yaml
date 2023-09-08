@@ -1,7 +1,7 @@
 architecture:
   version: 0.3
   local:
-  - name: system.eyeriss.PE[0..255].weights_spad
+  - name: system.eyeriss.PE[0..255].psum_spad
     class: smartbuffer_RF
     attributes:
       block-size: 1
@@ -13,6 +13,7 @@ architecture:
       n_rdwr_ports: 2
       read_bandwidth: 2
       technology: 45nm
+      update_fifo_depth: 2
       word-bits: 16
       write_bandwidth: 2
   - name: system.eyeriss.PE[0..255].mac

@@ -1,11 +1,11 @@
 mapping:
-  - target: weights_spad
+  - target: psum_spad
     type: datatype
     keep:
-      - Weights
-    bypass:
-      - Inputs
       - Outputs
+    bypass:
+      - Weights
+      - Inputs
   - target: DummyBuffer
     type: datatype
     keep:
@@ -29,29 +29,29 @@ mapping:
       - Outputs
     bypass:
       []
-  - target: weights_spad
+  - target: psum_spad
     type: temporal
-    factors: C1 K1 R11 S11 N1 P1 Q1
-    permutation: RSCKNPQ
+    factors: R1 S1 P1 Q1 C1 K1 N1
+    permutation: RSPQCKN
   - target: DummyBuffer
     type: spatial
-    factors: C1 K1 R1 S1 N1 P1 Q11
-    permutation: QCKRSNP
+    factors: R1 S1 P1 Q1 C4 K3 N1
+    permutation: CKRSPQN
     split: 0
   - target: DummyBuffer
     type: temporal
-    factors: C1 K1 R1 S1 N1 P1 Q1
-    permutation: CKRSNPQ
+    factors: R1 S1 P1 Q1 C1 K1 N1
+    permutation: RSPQCKN
   - target: shared_glb
     type: spatial
-    factors: C3 K4 R1 S1 N1 P1 Q1
-    permutation: CKRSNPQ
+    factors: R1 S1 P2 Q1 C1 K8 N1
+    permutation: PKRSQCN
     split: 2
   - target: shared_glb
     type: temporal
-    factors: C1 K12 R1 S1 N1 P55 Q1
-    permutation: PKCRSNQ
+    factors: R3 S3 P32 Q4 C32 K1 N1
+    permutation: SCRQPKN
   - target: DRAM
     type: temporal
-    factors: C1 K2 R1 S1 N1 P1 Q5
-    permutation: KQCRSNP
+    factors: R1 S1 P1 Q16 C2 K16 N1
+    permutation: CKQRSPN
