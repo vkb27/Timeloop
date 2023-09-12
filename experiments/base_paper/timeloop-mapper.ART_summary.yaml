@@ -10,7 +10,7 @@ ART_summary:
   - name: system.DRAM
     area: 0
     primitive_estimations: Cacti
-  - name: system.eyeriss.PE[0..255].psum_spad
+  - name: system.eyeriss.PE[0..255].weights_spad
     area: 4124.68
     primitive_estimations:
     - name: storage

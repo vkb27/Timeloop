@@ -40,7 +40,7 @@ ERT_summary:
     primitive_estimation(s):
     - name: system.DRAM
       estimator: Cacti
-  - name: system.eyeriss.PE[0..255].psum_spad
+  - name: system.eyeriss.PE[0..255].weights_spad
     actions:
     - name: write
       average_energy: 0.925
